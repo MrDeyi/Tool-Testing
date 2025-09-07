@@ -1,0 +1,22 @@
+
+server:
+  port: 8080
+
+spring:
+  application:
+           name: salary-service
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://salary-postgres:5432/salarydb}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# external service URL (to call registration-service)
+registration:
+  base-url: ${REGISTRATION_BASE_URL:http://registration-service:8080}
+
+
